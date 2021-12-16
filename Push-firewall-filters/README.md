@@ -36,6 +36,7 @@ Example with a junos formatted config (using 'text' syntax as per netconf uses) 
 
 This part adds the filter to the router:
 laurent@linux:~/TDD$ python3 push-any-config-set-to-any-router.py -f firewallfilter-dns-attack.conf -m text
+```
 -------------------------------------------------------------------------------
 Pushing a config to a router using ephemeraldb instance (config in set format)
 -------------------------------------------------------------------------------
@@ -44,13 +45,13 @@ Pushing a config to a router using ephemeraldb instance (config in set format)
 
 Using ephemeraldb instance True
 pushed the config to the router
-
+```
 
 
 Showing the effect on the router:
 
 laurent@mx01_re0> show ephemeral-configuration instance Corero
-## Last changed: 2021-12-13 09:01:25 PST
+```## Last changed: 2021-12-13 09:01:25 PST
 firewall {
     family inet {
         filter CORERO-MITIGATE {
@@ -117,13 +118,13 @@ firewall {
         }
     }
 }
-
+```
 
 
 This part deletes the added filter to the router:
 
 laurent@linux:~/TDD$ python3 push-any-config-set-to-any-router.py -f firewallfilter-dns-attack-delete.conf
--------------------------------------------------------------------------------
+```-------------------------------------------------------------------------------
 Pushing a config to a router using ephemeraldb instance (config in set format)
 -------------------------------------------------------------------------------
    => target=mx01	 login=admin	 pass=******************
@@ -132,10 +133,10 @@ Pushing a config to a router using ephemeraldb instance (config in set format)
 Using ephemeraldb instance True
 pushed the config to the router
 -------------------------------------------------------------------------------
-
+```
 
 laurent@mx01_re0> show ephemeral-configuration instance Corero
-## Last changed: 2021-12-13 09:02:08 PST
+```## Last changed: 2021-12-13 09:02:08 PST
 firewall {
     family inet {
         filter CORERO-MITIGATE {
@@ -157,4 +158,5 @@ firewall {
         }
     }
 }
+```
 (Here some filters are left on purpose)

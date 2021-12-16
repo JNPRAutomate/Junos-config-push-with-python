@@ -8,12 +8,10 @@ I added a few sample firewall filters that can be loaded in text/junos, set/dele
 
 
 
-linux$ **python3 push-any-config-set-to-any-router.py --help**
-```
-usage: push-any-config-set-to-any-router.py [-h] [-r TARGET] [-u LOGIN] [-p PASSWD] [-f FILE] [-m FORMAT] [-e EPHEMERAL]
+linux$ **python3 push-any-config-to-any-router.py --help**
+```usage: push-any-config-to-any-router.py [-h] [-r TARGET] [-u LOGIN] [-p PASSWD] [-f FILE] [-m FORMAT] [-e EPHEMERAL]
 
 Push some ephemeral config via netconf to a router
-
 optional arguments:
   -h, --help            show this help message and exit
   -r TARGET, --router TARGET
@@ -35,11 +33,10 @@ optional arguments:
 Example with a junos formatted config (using 'text' syntax as per netconf uses) and it's set format counterpart:
 
 This part adds the filter to the router:
-laurent@linux:~/TDD$ python3 push-any-config-set-to-any-router.py -f firewallfilter-dns-attack.conf -m text
-```
--------------------------------------------------------------------------------
-Pushing a config to a router using ephemeraldb instance (config in set format)
--------------------------------------------------------------------------------
+laurent@linux:~/TDD$ **python3 push-any-config-to-any-router.py -f firewallfilter-dns-attack.conf -m text**
+```-------------------------------------------------------
+Pushing a config to a router using ephemeraldb instance
+-------------------------------------------------------
    => target=mx01	 login=admin	 pass=******************
    => format=text	 file=firewallfilter-dns-attack.conf
 
@@ -50,7 +47,7 @@ pushed the config to the router
 
 Showing the effect on the router:
 
-laurent@mx01_re0> show ephemeral-configuration instance Corero
+laurent@mx01_re0> **show ephemeral-configuration instance Corero**
 ```## Last changed: 2021-12-13 09:01:25 PST
 firewall {
     family inet {
@@ -123,10 +120,10 @@ firewall {
 
 This part deletes the added filter to the router:
 
-laurent@linux:~/TDD$ python3 push-any-config-set-to-any-router.py -f firewallfilter-dns-attack-delete.conf
-```-------------------------------------------------------------------------------
-Pushing a config to a router using ephemeraldb instance (config in set format)
--------------------------------------------------------------------------------
+laurent@linux:~/TDD$ **python3 push-any-config-to-any-router.py -f firewallfilter-dns-attack-delete.conf**
+```-------------------------------------------------------
+Pushing a config to a router using ephemeraldb instance
+-------------------------------------------------------
    => target=mx01	 login=admin	 pass=******************
    => format=set	 file=firewallfilter-dns-attack-delete.conf
 
@@ -135,7 +132,7 @@ pushed the config to the router
 -------------------------------------------------------------------------------
 ```
 
-laurent@mx01_re0> show ephemeral-configuration instance Corero
+laurent@mx01_re0> **show ephemeral-configuration instance Corero**
 ```## Last changed: 2021-12-13 09:02:08 PST
 firewall {
     family inet {

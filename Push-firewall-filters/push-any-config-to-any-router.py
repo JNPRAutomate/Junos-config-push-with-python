@@ -29,10 +29,9 @@ format = args.format
 ephemeral = args.ephemeral
 ephemeraldb = args.ephemeraldb
 
-#print(" target=%s\n login=%s\n pass=%s\n file=%s\n" % (target,login,passwd,file))
-print("-------------------------------------------------------------------------------")
-print("Pushing a config to a router using ephemeraldb instance (config in set format) ")
-print("-------------------------------------------------------------------------------")
+print("-------------------------------------------------------")
+print("Pushing a config to a router using ephemeraldb instance")
+print("-------------------------------------------------------")
 print("   => target=%s\t login=%s\t pass=******************" % (target,login))
 print("   => format=%s\t file=%s\n" % (format,file))
 
@@ -40,7 +39,7 @@ dev = Device(host=target, user=login, password=passwd)
 try:
     dev.open()
     if ephemeral==True:
-        print("Using ephemeraldb instance %s " %(ephemeral) with database %(ephemeraldb))
+        print("Using ephemeraldb instance %s with database %s" %(ephemeral,ephemeraldb))
         with Config(dev, mode='ephemeral', ephemeral_instance=ephemeraldb) as cu:
              cu.load(path=file, format=format, merge=True)
              cu.commit(force_sync=True)
@@ -54,5 +53,5 @@ try:
 
 except ConnectError as err:
     print ("Cannot connect to device: {0}".format(err))
-print("-------------------------------------------------------------------------------")
+print("-------------------------------------------------------")
 

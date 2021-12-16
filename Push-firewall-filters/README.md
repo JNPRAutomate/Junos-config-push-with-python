@@ -9,6 +9,7 @@ I added a few sample firewall filters that can be loaded in text/junos, set/dele
 
 
 linux$ **python3 push-any-config-set-to-any-router.py --help**
+```
 usage: push-any-config-set-to-any-router.py [-h] [-r TARGET] [-u LOGIN] [-p PASSWD] [-f FILE] [-m FORMAT] [-e EPHEMERAL]
 
 Push some ephemeral config via netconf to a router
@@ -28,6 +29,7 @@ optional arguments:
   -e EPHEMERAL, --ephemeral EPHEMERAL
                         if ephemeraldb is used (default: True)_
 
+```
 
 
 Example with a junos formatted config (using 'text' syntax as per netconf uses) and it's set format counterpart:

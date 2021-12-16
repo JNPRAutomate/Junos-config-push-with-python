@@ -14,7 +14,7 @@ from pprint import pprint
 from lxml import etree
 import jxmlease
 
-router   = 'MYROUTERIPORNAME'
+router   = 'MYROUTERNAME'
 user     = 'MYUSER'
 password = 'MYPASS'
 filtername = 'CORERO-MITIGATE'
